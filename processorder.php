@@ -1,8 +1,8 @@
 <?php
 //create short variable names
-$tireqty=$ _POST [ 'tireqty'];
-$oilqty=$ _POST [ 'oilqty'];
-$sparkqty=$_POST[ 'sparkqty'];
+$tireqty = $_POST [ 'tireqty'];
+$oilqty = $_POST [ 'oilqty'];
+$sparkqty = $_POST[ 'sparkqty'];
 ?>
 
 <html>
@@ -17,26 +17,24 @@ $sparkqty=$_POST[ 'sparkqty'];
     <?php
         echo "<p>Order processed at " .date( 'H:i, jS F Y'). "</p>";
 
-        $totalqty=0 ;
-        $totalqty=$tireqty + $oilqty + $sparkqty ;
+        $totalqty = 0 ;
+        $totalqty = $tireqty + $oilqty + $sparkqty;
+        echo "Items ordered: ".$totalqty."<br />";
+        $totalamount = 0.00;
 
-        echo "Items ordered: " .$totalqty. "<br />";
-        $totalamount=0 .00;
-
-        define( 'TIREPRICE' , 100);
-        define( 'OILPRICE' , 10);
-        define( 'SPARKPRICE', 4);
+        define('TIREPRICE', 100);
+        define('OILPRICE', 10);
+        define('SPARKPRICE', 4);
 
         $totalamount = $tireqty * TIREPRICE
                      + $oilqty * OILPRICE
                      + $sparkqty * SPARKPRICE;
 
-        echo "Subtotal: $".number_format($totala,ount,2) . "<br />";
+        echo "Subtotal: $".number_format($totalamount,2). "<br />";
 
-        $taxrate = 0.10; //local sales tax is 10%
-        $totalamount = $totalamount * (1 + taxrate);
-        echo "Total including tax: $" .number_format($totalamount,2). <br />";
-
+        $taxrate = 0.10; // local sales tax is 10%
+        $totalamount = $totalamount * (1 + $taxrate);
+        echo "Total including tax: $" .number_format($totalamount,2)." <br />";
     ?>
 </body>
 
