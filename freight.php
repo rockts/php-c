@@ -6,17 +6,12 @@
     <td bgcolor="#cccccc" align="center">Cost</td>
 </tr>
 <?php
-
-$distance = 50;
-while ($distance <= 250) {
+for ($distance = 50; $distance <= 250; $distance += 50) {
     echo "<tr>
           <td align=\"right\">".$distance."</td>
           <td align=\"right\">".($distance / 10 )."</td>
-          </tr> \n";
-
-    $distance += 50;
+          </tr>\n";
 }
-
 ?>
 </table>
 </body>
