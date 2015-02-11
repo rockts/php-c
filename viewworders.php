@@ -11,6 +11,9 @@ $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
         <h2>Customer Orders</h2>
         <?php
            @$fp = fopen("$DOCUMENT_ROOT/orders/orders.txt", 'rb');
+            flock($fp, LOCK_SH); // lock file for reading
+            // read from the file
+
 
            if (!$fp) {
                echo "<p><strong>No orders pending.
@@ -22,6 +25,8 @@ $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
               $order= fgets($fp, 999);
               echo $order."<br />";
           }
+            flock($fp, LOCK_UN); // release read lock
+            fclose($fp);
        ?>
     </body>
 </html>

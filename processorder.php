@@ -67,8 +67,7 @@ $date = date('H:i, jS F Y');
                         ."\t". $address."\n";
         // open file for appending
         $fp = fopen("$DOCUMENT_ROOT/orders/orders.txt", 'ab');
-
-        flock($fp, LOCK_EX);
+        flock($fp, LOCK_EX); // lock the file for writing
 
     if (!$fp) {
             echo "<p><strong> Your order could not be processed at this time.
@@ -77,7 +76,7 @@ $date = date('H:i, jS F Y');
     }
 
         fwrite($fp, $outputstring, strlen($outputstring));
-        flock($fp, LOCK_UN);
+        flock($fp, LOCK_UN); // release write lock
         fclose($fp);
 
         echo "<p>Order written.</p>";
