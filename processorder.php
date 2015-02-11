@@ -18,7 +18,7 @@ $date = date('H:i, jS F Y');
     <h2>Order Results</h2>
     <?php
 
-        echo "<p>Order processed at " .date( 'H:i, jS F Y'). "</p>";
+         echo "<p>Order processed at ".date('H:i, jS F Y')."</p>";
 
         echo "<p>Your order is as follows: </p>";
 
@@ -29,22 +29,22 @@ $date = date('H:i, jS F Y');
 
     if ($totalqty == 0) {
 
-           echo "You did not order anything on the previous page!<br />";
+        echo "You did not order anything on the previous page!<br />";
 
-        } else {
+    } else {
 
-            if ($tireqty > 0) {
+        if ($tireqty > 0) {
                 echo $tireqty." tires<br />";
-            }
-
-            if ($oilqty > 0) {
-                echo $oilqty." bottles of oil<br />";
-            }
-
-            if ($sparkqty > 0) {
-                echo $sparkqty." spark plugs<br />";
-            }
         }
+
+        if ($oilqty > 0) {
+                echo $oilqty." bottles of oil<br />";
+        }
+
+        if ($sparkqty > 0) {
+                echo $sparkqty." spark plugs<br />";
+        }
+    }
 
 
         $totalamount = 0.00;
@@ -66,21 +66,21 @@ $date = date('H:i, jS F Y');
                         .$sparkqty." spark plugs\t\$".$totalamount
                         ."\t". $address."\n";
         // open file for appending
-        @ $fp = fopen("$DOCUMENT_ROOT/../orders/orders.txt", 'ab');
+        $fp = fopen("$DOCUMENT_ROOT/../orders/orders.txt", 'ab');
 
-        flock($fp,  LOCK_EX);
+        flock($fp, LOCK_EX);
 
-        if (!$fp) {
+    if (!$fp) {
             echo "<p><strong> Your order could not be processed at this time.
                   please try again later.</strong></p></body></html>";
             exit;
-        }
+    }
 
         fwrite($fp, $outputstring, strlen($outputstring));
         flock($fp, LOCK_UN);
         fclose($fp);
 
-        echo "<p>Order written</p>";
+        echo "<p>Order written.</p>";
     ?>
 </body>
 
