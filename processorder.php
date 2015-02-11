@@ -18,7 +18,7 @@ $date = date('H:i, jS F Y');
     <h2>Order Results</h2>
     <?php
 
-         echo "<p>Order processed at ".date('H:i, jS F Y')."</p>";
+        echo "<p>Order processed at ".date('H:i, jS F Y')."</p>";
 
         echo "<p>Your order is as follows: </p>";
 
@@ -29,7 +29,7 @@ $date = date('H:i, jS F Y');
 
     if ($totalqty == 0) {
 
-        echo "You did not order anything on the previous page!<br />";
+        echo "<strong>You did not order anything on the previous page!</strong><br />";
 
     } else {
 
@@ -66,7 +66,7 @@ $date = date('H:i, jS F Y');
                         .$sparkqty." spark plugs\t\$".$totalamount
                         ."\t". $address."\n";
         // open file for appending
-        $fp = fopen("$DOCUMENT_ROOT/../orders/orders.txt", 'ab');
+        $fp = fopen("$DOCUMENT_ROOT/orders/orders.txt", 'ab');
 
         flock($fp, LOCK_EX);
 
@@ -83,6 +83,4 @@ $date = date('H:i, jS F Y');
         echo "<p>Order written.</p>";
     ?>
 </body>
-
 </html>
-
