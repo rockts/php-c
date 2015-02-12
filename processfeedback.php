@@ -5,7 +5,7 @@ $email=$_POST['email'];
 $feedback=$_POST['feedback'];
 
 //set up some static information
-$toadress="rockts@sina.com";
+$toadress="englishrock@163.com";
 
 $subject="Feedback from web site";
 
@@ -13,7 +13,7 @@ $mailcontent="Customer name:".$name."\n";
              "Customer email:".$email."\n";
              "Customer comments".$feedback."\n";
 
-$fromaddress="From: rockts@sina.com";
+$fromaddress="From: rockts@free-e.net";
 
 //invoke mail() function to send mail
 mail($toadress, $subject, $mailcontent, $fromaddress);
