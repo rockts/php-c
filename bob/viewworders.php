@@ -10,7 +10,7 @@ $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
         <h1>Bob 's Auto Parts</h1>
         <h2>Customer Orders</h2>
         <?php
-           @$fp = fopen("$DOCUMENT_ROOT/orders/orders.txt", 'rb');
+           @$fp = fopen("$DOCUMENT_ROOT/bob/orders/orders.txt", 'rb');
             flock($fp, LOCK_SH); // lock file for reading
             // read from the file
            if (!$fp) {

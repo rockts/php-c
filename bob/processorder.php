@@ -66,7 +66,7 @@ $date = date('H:i, jS F Y');
                         .$sparkqty." spark plugs\t\$".$totalamount
                         ."\t". $address."\n";
         // open file for appending
-        $fp = fopen("$DOCUMENT_ROOT/orders/orders.txt", 'ab');
+        $fp = fopen("$DOCUMENT_ROOT/bob/orders/orders.txt", 'ab');
         flock($fp, LOCK_EX); // lock the file for writing
 
     if (!$fp) {
